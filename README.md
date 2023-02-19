@@ -14,4 +14,10 @@ Réalisation par la formation DWWM 2022-2023.
 
 ## Commentaires
 
-It start
+Alex : création du fichier Config/const.php
+Ma base perso s'appelle 'projet-co' elle contient des
+                                 {images}[id,name,alt]
+                               {user}[id,name]
+                                {posts}[id,img_id,user_id,date] // got foreign_key [!not primary]
+
+// TEST // ajout de Config/services.php

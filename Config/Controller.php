@@ -1,11 +1,9 @@
 <?php
-
 /**
  * Controller
  **/
 class Controller
 {
-
 	public $request;  				// Objet Request 
 	private $vars     = array();	// Variables à passer à la vue
 	public $layout    = 'default';  // Layout à utiliser pour rendre la vue
@@ -23,31 +21,32 @@ class Controller
 
 		if ($request) {
 			$this->request = $request; 	// On stocke la request dans l'instance	
-			require ROOT . DS . 'Config' . DS . 'hook.php';
+			require __ROOT__ . __DS__ . 'Config' . __DS__ . 'hook.php';
 		}
 	}
 
 
 	/**
 	 * Permet de rendre une vue
-	 * @param $view Fichier à rendre (chemin depuis view ou nom de la vue) 
+	 * @param $view Fichier à rendre (chemin __ROOT__depuis view ou nom de la vue) 
 	 **/
 	public function render($view)
 	{
-		if ($this->rendered) {
+		if ($this->rendered)
+		{
 			return false;
 		}
 		extract($this->vars);
 		if (strpos($view, '/') === 0) {
-			$view = ROOT . DS . 'Template' . $view . '.php';
+			$view = __ROOT__ . __DS__ . 'Template' . $view . '.php';
 		} else {
-			$view = ROOT . DS . 'Template' . DS . $this->request->controller . DS . $view . '.php';
+			$view = __ROOT__ . __DS__ . 'Template' . __DS__ . $this->request->controller . __DS__ . $view . '.php';
 		}
 
 		ob_start();
 		require($view);
 		$content_for_layout = ob_get_clean();
-		require ROOT . DS . 'Template' . DS . 'layout' . DS . $this->layout . '.php';
+		require __ROOT__ . __DS__ . 'Template' . __DS__ . 'layout' . __DS__ . $this->layout . '.php';
 		$this->rendered = true;
 	}
 
@@ -72,7 +71,7 @@ class Controller
 	function loadModel($name)
 	{
 		if (!isset($this->$name)) {
-			$file = ROOT . DS . 'Src' . DS . 'Model' . DS . $name . '.php';
+			$file = __ROOT__ . __DS__ . 'Src' . __DS__ . 'Model' . __DS__ . $name . '.php';
 			require_once($file);
 			$this->$name = new $name();
 			if (isset($this->Form)) {
@@ -98,7 +97,7 @@ class Controller
 	function request($controller, $action)
 	{
 		$controller .= 'Controller';
-		require_once ROOT . DS . 'Src' . DS . 'Controller' . DS . $controller . '.php';
+		require_once __ROOT__ . __DS__ . 'Src' . __DS__ . 'Controller' . __DS__ . $controller . '.php';
 		$c = new $controller();
 		return $c->$action();
 	}

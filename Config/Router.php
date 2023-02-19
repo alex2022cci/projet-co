@@ -25,11 +25,11 @@ class Router
 	/**
 	 * fonction "parse($url, $request)" qui permet de transformer une URL donnée et extraire les informations qu'elle contient, telles que le contrôleur, l'action et les paramètres.
 	 * Le paramètre $url est l'URL à transformer, et $request est un objet qui contient des informations sur la requête.
-	 
+
 	 * La fonction parse() parcourt la liste des routes définies et utilise des expressions régulières pour faire correspondre l'URL à un des modèles de routes définis.
 	 * Si elle trouve une correspondance, elle remplace l'URL d'origine par l'URL de redirection correspondante et remplace également les paramètres de l'URL par leurs valeurs réelles.
 	 * De plus, si un préfixe est associé à l'URL, la fonction l'ajoute également à la demande de l'utilisateur.
-	 
+
 	 * Pour finir, Les paramètres extraits sont stockés dans l'objet $request, qui est retourné par la fonction.
 	 * 	
 	 **/
@@ -134,7 +134,6 @@ class Router
 		}
 		return BASE_URL . '/' . $url;
 	}
-
 
 	static function webroot($url)
 	/**

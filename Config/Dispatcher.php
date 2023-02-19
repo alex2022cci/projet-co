@@ -44,7 +44,7 @@ class Dispatcher
 	function loadController()
 	{
 		$name = ucfirst($this->request->controller) . 'Controller';
-		$file = ROOT . DS . 'Src' . DS . 'Controller' . DS . $name . '.php';
+		$file = __ROOT__ . __DS__ . 'Src' . __DS__ . 'Controller' . __DS__ . $name . '.php';
 		if (!file_exists($file)) {
 			$this->error('Le controller ' . $this->request->controller . ' n\'existe pas');
 		}

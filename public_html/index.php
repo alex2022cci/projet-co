@@ -7,10 +7,10 @@ $debut = microtime(true);
 define('WEBROOT', dirname(__FILE__));
 define('ROOT', dirname(WEBROOT));
 define('DS', DIRECTORY_SEPARATOR);
-define('CORE', ROOT . DS . 'Config');
+define('CORE', __ROOT__ . __DS__ . 'Config');
 define('BASE_URL', dirname(dirname($_SERVER['SCRIPT_NAME'])));
 
-require CORE . DS . 'includes.php';
+require CORE . __DS__ . 'includes.php';
 new Dispatcher();
 
 ?>

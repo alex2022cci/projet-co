@@ -7,7 +7,7 @@ class Conf
 		// informations de connexion à la base de données par défaut
 		'default' => array(
 			'host'		=> 'localhost',
-			'database'	=> '???',
+			'database'	=> 'projet-co',
 			'login'		=> 'root',
 			'password'	=> ''
 		)
